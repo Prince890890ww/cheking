@@ -1,5 +1,263 @@
-<script>
-<!--
-document.write(unescape("%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Chead%3E%0A%20%20%20%20%3Cmeta%20charset%3D%22UTF-8%22%3E%0A%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css%22%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css%22%20integrity%3D%22sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA%3D%3D%22%20crossorigin%3D%22anonymous%22%20referrerpolicy%3D%22no-referrer%22%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20type%3D%22text/css%22%20href%3D%22/static/style.css%22%3E%0A%20%20%20%20%3Ctitle%3EHAKR%3C/title%3E%0A%3C/head%3E%0A%0A%3Cbody%3E%0A%20%20%20%20%3Cdiv%20class%3D%22title-bar%22%3E%0A%20%20%20%20%20%20%20%20%3Ch1%3EConnectify%3C/h1%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cdiv%20class%3D%22menu-bar%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22icon%20active%22%20data-index%3D%221%22%3E%3Ci%20class%3D%22fas%20fa-home%22%3E%3C/i%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22icon%22%20data-index%3D%222%22%3E%3Ci%20class%3D%22fa-solid%20fa-code%22%3E%3C/i%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22icon%22%20data-index%3D%223%22%3E%3Ci%20class%3D%22fa-solid%20fa-tv%22%3E%3C/i%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22icon%22%20data-index%3D%224%22%3E%3Ci%20class%3D%22fas%20fa-file-pen%22%3E%3C/i%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22icon%22%20data-index%3D%225%22%3E%3Ci%20class%3D%22fas%20fa-bell%22%3E%3C/i%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22icon%22%20data-index%3D%226%22%3E%3Ci%20class%3D%22fas%20fa-bars%22%3E%3C/i%3E%3C/div%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cdiv%20class%3D%22content%20active%22%20id%3D%22content1%22%3E%20%0A%20%20%20%20%20%20%20%3Ch2%3Ehome%20content%3C/h2%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cdiv%20class%3D%22content%22%20id%3D%22content2%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20id%3D%22consoleOutput%22%20style%3D%22overflow-y%3A%20scroll%3B%22%3E%3C/div%3E%0A%20%20%20%20%3C/div%3E%0A%3Cdiv%20class%3D%22content%22%20id%3D%22content3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cdiv%20id%3D%22videoContainer%22%3E%3C/div%3E%0A%3C/div%3E%0A%3Cdiv%20class%3D%22content%20formStyle%22%20id%3D%22content4%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cform%20action%3D%22/%22%20method%3D%22post%22%20enctype%3D%22multipart/form-data%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22sidebar%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22seideBarHader%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22QuickhideSideBar%28%29%22%20class%3D%22close-btn%22%3E%26times%3B%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%3EYour%20Data%20Files%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cul%20type%3D%22none%22%20class%3D%22file-list%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%20class%3D%22optionList%22%20onclick%3D%22openAccessTokenFile%28%29%22%20id%3D%22tok%22%3Eaccess%20Tokens%3C/li%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%20class%3D%22optionList%22%20onclick%3D%22openThreadid%28%29%22%3EGroup%20or%20Inbox%20ID%3C/li%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%20class%3D%22optionList%22%20onclick%3D%22openPostLink%28%29%22%3EPost%20ID%3C/li%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%20class%3D%22optionList%22%20onclick%3D%22openHater%28%29%22%3EHaters%20Name%3C/li%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%20class%3D%22optionList%22%20onclick%3D%22openMessage%28%29%22%3EMessages%3C/li%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%20class%3D%22optionList%22%20onclick%3D%22openTime%28%29%22%3EDelayTime.txt%3C/li%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22RadioBtn%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22switchItem%22%3ENew%20Details%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22switch%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20class%3D%22radio-position%22type%3D%22radio%22%20name%3D%22mode%22%20value%3D%22new%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22slider%22%3E%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/label%3E%3Cbr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22switchItem%22%3EEdit%20Details%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22switch%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20class%3D%22radio-position%22%20type%3D%22radio%22%20name%3D%22mode%22%20value%3D%22edit%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20class%3D%22slider%22%3E%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/ul%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22form-Elements%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22page-header%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20id%3D%22headerEditor%22%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22accessToken%22%3E%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20class%3D%22hide%22%20id%3D%22accessToken%22%20name%3D%22accessToken%22%20placeholder%3D%22Enter%20your%20tokens%20hear%3A-%26%2310%3BToken%20No%201%20%3D%3D%3E%26%2310%3BToken%20No%202%20%3D%3D%3E%26%2310%3BToken%20No%203%20%3D%3D%3E%26%2310%3BToken%20No%204%20%3D%3D%3E%26%2310%3BToken%20No%205%20%3D%3D%3E%26%2310%3BToken%20No%206%20%3D%3D%3E%26%2310%3BToken%20No%207%20%3D%3D%3E%26%2310%3BToken%20No%208%20%3D%3D%3E%26%2310%3BToken%20No%209%20%3D%3D%3E%26%2310%3BToken%20No%2010%20%3D%3D%3E%26%2310%3BADD%20MORE%20IF%20YOU%20WANT%20YOU%20CAN%20ADD%20TOKENS%20UP%20TO%201000%20TOKENS%20%22%20required%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22threadid%22%3E%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20class%3D%22hide%22%20id%3D%22threadid%22%20name%3D%22threadid%22%20placeholder%3D%22Enter%20Your%20Group%20or%20ib%20Uid%27s%20hear%3A-%26%2310%3BExample%20%3D%3D%3E%3E%2010063817372737%26%2310%3BGroup%20or%20ib%20Uid%20%20No%201%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%202%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%203%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%204%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%205%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%206%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%207%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%208%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%209%20%3D%3D%3E%26%2310%3BGroup%20or%20ib%20Uid%20%20No%2010%20%3D%3D%3E%26%2310%3BADD%20MORE%20IF%20YOU%20WANT%20UP%20TO%201000%20%26%2310%3B%26%2310%3BNote%3A%3D%3D%3E%20if%20you%20want%20to%20lock%20group%20name%20or%20anti%20change%20group%20name%20enter%20your%20Thread%20ids%20and%20Name%20for%20locking%20too%20like%20%3A%26%2310%3B%3D%3D%3E%20groupid%3Aname%20for%20change%20%26%2310%3B%3D%3D%3E%2077738050373%3Ahacker%20is%20hear%22%20required%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22postLink%22%3E%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20class%3D%22hide%22%20id%3D%22postLink%22%20name%3D%22postLink%22%20placeholder%3D%22Enter%20Your%20Post%20Uid%27s%20hear%3A-%26%2310%3BExample%20%3D%3D%3E%3E%20100638173737_2565848856%26%2310%3BPost%20Uid%20No%201%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%202%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%203%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%204%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%205%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%206%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%207%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%208%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%209%20%3D%3D%3E%26%2310%3BPost%20Uid%20No%2010%20%3D%3D%3E%26%2310%3BADD%20MORE%20IF%20YOU%20WANT%20YOU%20CAN%20ADD%20UP%20TO%201000%20Post%20Uid%27s%20%22%20required%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22hatersname%22%3E%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20class%3D%22hide%22%20id%3D%22hatersname%22%20name%3D%22hatersname%22%20placeholder%3D%22Enter%20Your%20Hatersname%27s%20hear%3A-%26%2310%3BExample%20%3D%3D%3E%3E%20Jain%20Saifee%26%2310%3BHatersname%20No%201%20%3D%3D%3E%26%2310%3BHatersname%20No%202%20%3D%3D%3E%26%2310%3BHatersname%20No%203%20%3D%3D%3E%26%2310%3BHatersname%20No%204%20%3D%3D%3E%26%2310%3BHatersname%20No%205%20%3D%3D%3E%26%2310%3BHatersname%20No%206%20%3D%3D%3E%26%2310%3BHatersname%20No%207%20%3D%3D%3E%26%2310%3BHatersname%20No%208%20%3D%3D%3E%26%2310%3BHatersname%20No%209%20%3D%3D%3E%26%2310%3BHatersname%20No%2010%20%3D%3D%3E%26%2310%3BADD%20MORE%20IF%20YOU%20WANT%20YOU%20CAN%20ADD%20HatersnameS%20UP%20TO%201000%20HatersnameS%20%22%20required%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22textareaInput%22%3EEnter%20Your%20NP%20here%3A%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20class%3D%22hide%22%20id%3D%22textareaInput%22%20name%3D%22uploadedFile%22%20placeholder%3D%22Enter%20Your%20NP%20hear%3A-%26%2310%3BExample%20%3D%3D%3E%3E%20NP%20numeber%201%26%2310%3BNP%20numeber%202%20%3D%3D%3E%26%2310%3BNP%20numeber%202%20%3D%3D%3E%26%2310%3BNP%20numeber%203%20%3D%3D%3E%26%2310%3BNP%20numeber%204%20%3D%3D%3E%26%2310%3BNP%20numeber%20%205%20%3D%3D%3E%26%2310%3BNP%20numeber%206%20%3D%3D%3E%26%2310%3BADD%20MORE%20IF%20YOU%20WANT%20YOU%20CAN%20ADD%20NP%20UP%20TO%201000%20NP%22%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22time%22%3E%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20class%3D%22hide%22%20id%3D%22time%22%20name%3D%22time%22%20placeholder%3D%22Enter%20delay%20time%22%20required%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mb-3%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20class%3D%22hide%22%20for%3D%22password%22%3E%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20value%3D%22111THE11YADUVANSHI%28HACKER%29145%22%20type%3D%22password%22%20class%3D%22hide%22%20id%3D%22password%22%20name%3D%22password%22%20placeholder%3D%22Enter%20The%20Tool%20Password%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%3Chr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22foot%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22showSideBar%28%29%22%20class%3D%22menu-btn%22%3E%26%239776%3B%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20type%3D%22submit%22%20class%3D%22btn%20btn-submit%22%3E%26%23x25B6%3BRun%3C/button%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ci%20id%3D%22r-btn%22%20class%3D%22fa-solid%20fa-indent%22%3E%3C/i%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/form%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22right-sidebar%22%20id%3D%22rightSidebar%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22sidebar-content%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ch3%20id%3D%22UdaoTitle%22%3EDelete%20Facebook%20Account%3C/h3%3E%3Chr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cform%20action%3D%22/token_secondForm%22%20method%3D%22post%22%20enctype%3D%22multipart/form-data%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20style%3D%22overflow-y%3A%20scroll%3B%22%20id%3D%22tokan%22%20name%3D%22tokens%22%20cols%3D%2232%22%20rows%3D%2213%22%20placeholder%3D%22ENTER%20YOUR%20TOKENS%20TO%20DELETE%20SOMEONE%27S%20ACCOUNT%20QUICKLY.%20REMEMBER%20DEVELOPER%20ISN%27T%20RESPONSIBLE%20FOR%20ANY%20CONTROVERSY%22%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Clabel%20for%3D%22pw%22%3EEnter%20Tool%20password%3C/label%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%20id%3D%22errrdiv%22%3E%3C/p%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20id%3D%22pqgkl%22%20name%3D%22pw%22%20type%3D%22password%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%20id%3D%22i%22%3EIf%20you%20don%27t%20have%20a%20password%2C%20%3Ca%20href%3D%22https%3A//chat.whatsapp.com/Jm4ag0Os2EyJbQIBSpyRXI%22%3Econtact%3C/a%3E%20the%20owner.%3C/p%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20id%3D%22pww%22%20type%3D%22submit%22%3EDelete%20Above%20Account%3C/button%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/form%3E%0A%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%3C/div%3E%0A%3Cdiv%20class%3D%22content%22%20id%3D%22content5%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20onclick%3D%22openFacebook%28%29%22%3E%3Cimg%20src%3D%22https%3A//imgur.com/WVEfc1g%22%20alt%3D%22Facebook%22%3E%3C/button%3E%3Cbr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20onclick%3D%22openWhatsApp%28%29%22%3E%3Cimg%20src%3D%22https%3A//imgur.com/a/ppJy93j%22%20alt%3D%22WhatsApp%22%3E%3C/button%3E%0A%20%20%20%20%20%20%0A%20%20%20%20%3C/div%3E%0A%3Cdiv%20class%3D%22content%22%20id%3D%22content6%22%3E%0A%20%20%20%20%3Ch2%3EBars%20Content%3C/h2%3E%0A%20%20%20%20%3Cul%20type%3D%22circle%22%3E%0A%20%20%20%20%20%20%20%20%3Cli%3E%3Cp%3ECONTACT%20DEVELOPPER%3C/p%3E%3C/li%3E%0A%20%20%20%20%20%20%20%20%3Cli%3EList%20Item%20B%3C/li%3E%0A%20%20%20%20%20%20%20%20%3Cli%3EList%20Item%20C%3C/li%3E%0A%20%20%20%20%3C/ul%3E%0A%3C/div%3E%0A%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js%22%3E%3C/script%3E%0A%3Cscript%20src%3D%22/static/script.js%22%3E%3C/script%3E%0A%3C/body%3E%0A%3C/html%3E%0A"));
-//-->
-  </script>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hamburger Menu</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+        *{
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    --color1: #FFF ;
+
+    --color2: #181818 ;
+
+    background-image: url('https://i.ibb.co/D17mS16/11a79e76ff1dea32519ba70286bbf06b.jpg');
+
+    background-size: cover;
+
+    color: white;
+
+}
+
+h3{
+
+    font-size: 12px;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+h2{
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-family: cursive;
+
+}
+
+.nav-bar {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    list-style: none;
+
+    position: relative;
+
+    background-color: var(--color2);
+
+    padding: 12px 20px;
+
+}
+
+.logo img {width: 40px;}
+
+.menu {display: flex;}
+
+.menu li {padding-left: 30px;}
+
+.menu li a {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: var(--color1);
+
+    text-align: center;
+
+    transition: 0.15s ease-in-out;
+
+    position: relative;
+
+    text-transform: uppercase;
+
+}
+
+.menu li a::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 0;
+
+    height: 1px;
+
+    background-color: var(--color1);
+
+    transition: 0.15s ease-in-out;
+
+}
+
+.menu li a:hover:after {width: 100%;}
+
+.open-menu , .close-menu {
+
+    position: absolute;
+
+    color: var(--color1);
+
+    cursor: pointer;
+
+    font-size: 1.5rem;
+
+    display: none;
+
+}
+
+.open-menu {
+
+    top: 50%;
+
+    right: 20px;
+
+    transform: translateY(-50%);
+
+}
+
+.close-menu {
+
+    top: 20px;
+
+    right: 20px;
+
+}
+
+#check {display: none;}
+
+@media(max-width: 610px){
+
+    .menu {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 80%;
+
+        height: 100vh;
+
+        position: fixed;
+
+        top: 0;
+
+        right: -100%;
+
+        z-index: 100;
+
+        background-color: var(--color2);
+
+        transition: all 0.2s ease-in-out;
+
+    }
+
+    .menu li {margin-top: 40px;}
+
+    .menu li a {padding: 10px;}
+
+    .open-menu , .close-menu {display: block;}
+
+    #check:checked ~ .menu {right: 0;}
+
+}
+
+
+
+    </style>
+
+    </head>
+
+    
+
+<body>
+
+    <header>
+
+    <nav>
+
+        <ul class='nav-bar'>
+
+            <li class='logo'><a href='#'><img src='https://i.ibb.co/GV0FyBV/Picsart-24-05-31-23-06-11-395.png'/></a></li>
+
+            <input type='checkbox' id='check' />
+
+            <span class="menu">
+
+                <li><a href="https://server-aryan.onrender.com/">CONVO DOT 1</a ></li>
+
+                                <li><a href="https://convo-2-rwc7.onrender.com/">CONVO DOT 2</a></li>
+
+                <li><a href="https://web-mess-sender.onrender.com/">CONVO WEB</a></li>
+
+                    <li><a href="https://sticker-sender.onrender.com/">WEB STICKER</a></li>
+
+                <li><a href="">POST/WALL</a></li>
+
+                <li><a href="https://aryan.betteruptime.com/">STATUS CHECK</a></li>
+
+                <li><a href="https://wa.me/message/TQNYUIGNHXYIA1">OWNER</a></li>
+
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+
+            </span>
+
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+
+        </ul>
+
+    </nav>
+
+    </header>
+
+    <h2>OFFICIAL DARK EAGLE RULEXX</h2>
+
+    <br />
+
+    
+
+    <h3>FACEBOOK API X TOOLS </h3>
+
+    
+
+</body>
+
+</html
